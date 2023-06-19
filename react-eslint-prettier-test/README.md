@@ -6,6 +6,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+## "shift + option + f"
+Will format the code with prettier
+
+## "npm run lint"
+Runs the script ive set in package.json, and activates es lint..
+
 ### `npm start`
 
 Runs the app in the development mode.\
