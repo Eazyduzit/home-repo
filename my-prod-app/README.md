@@ -1,3 +1,5 @@
+# This React App is set up with Typescript + ESLint + Prettier
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
