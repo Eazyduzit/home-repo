@@ -16,3 +16,8 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+h2 {
+  color: white;
+  font-style: italic;
+}
