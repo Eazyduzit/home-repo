@@ -1,5 +1,6 @@
 @import url('@sikt/sds-core');
 @import url('@sikt/sds-tokens');
+@import url('@sikt/sds-icons');
 
 * {
   box-sizing: border-box;
