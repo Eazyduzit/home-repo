@@ -12,7 +12,7 @@ export interface ProfileCardProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const ProfileCard = ({ variant, children, ...rest }: ProfileCardProps) => {
-  let screenReader
+  //   let screenReader
   //   let Icon
 
   //   if (variant === 'success') {
@@ -41,7 +41,14 @@ export const ProfileCard = ({ variant, children, ...rest }: ProfileCardProps) =>
         <Paragraph as="span" variant="regular" modifier="strong">
           {children}
         </Paragraph>
-        <ScreenReaderOnly>{screenReader}</ScreenReaderOnly>
+        <ScreenReaderOnly>
+          {variant === 'success'
+            ? 'Godkjent'
+            : variant === 'warning'
+            ? 'Ikke vurdert'
+            : 'Underkjent'}
+        </ScreenReaderOnly>
+        {/* <Icon /> */}
         {/* {Icon && <Icon />} */}
         {variant === 'success' ? (
           <CheckCircleIcon />
