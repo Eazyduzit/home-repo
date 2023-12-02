@@ -1,7 +1,7 @@
+import './ProfileCard.css'
 import { HTMLAttributes, ReactNode } from 'react'
 import { Paragraph, ScreenReaderOnly } from '@sikt/sds-core'
 import { CheckCircleIcon, WarningIcon, XCircleIcon } from '@sikt/sds-icons'
-import './App.css'
 import clsx from 'clsx'
 
 type ProfileCardVariant = 'success' | 'warning' | 'critical'
@@ -30,10 +30,15 @@ export const ProfileCard = ({ variant, children, ...rest }: ProfileCardProps) =>
     <div
       className={clsx(
         `sds-icons--${variant}`,
-        // cardContainer,
-        // variant === 'success' && cardSuccess,
-        // variant === 'warning' && cardWarning,
-        // variant === 'critical' && cardCritical,
+        'cardContainer',
+        variant === 'success'
+          ? 'cardSuccess'
+          : variant === 'warning'
+          ? 'cardWarning'
+          : 'cardCritical',
+        // variant === 'success' && 'cardSuccess',
+        // variant === 'warning' && 'cardWarning',
+        // variant === 'critical' && 'cardCritical',
       )}
       {...rest}
     >
@@ -42,7 +47,7 @@ export const ProfileCard = ({ variant, children, ...rest }: ProfileCardProps) =>
           {children}
         </Paragraph>
         <ScreenReaderOnly>{screenReader}</ScreenReaderOnly>
-        {/* <Icon /> */}
+        {/* {Icon && <Icon />} */}
         {variant === 'success' ? (
           <CheckCircleIcon />
         ) : variant === 'warning' ? (

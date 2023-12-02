@@ -1,0 +1,30 @@
+.cardContainer {
+  min-width: 200px;
+  min-height: 70px;
+  border-radius: var(--sds-space-border-radius-small);
+  padding: var(--sds-base-size-s1);
+  box-shadow: var(--sds-effect-shadow-elevated-default);
+}
+
+.cardContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  gap: var(--sds-space-gap-medium);
+}
+
+.cardBorder {
+  margin: 0 auto;
+  border-bottom: 1px solid var(--sds-color-brand-accent-strong);
+}
+
+.cardSuccess {
+  background-color: var(--sds-color-layout-background-success);
+}
+.cardWarning {
+  background-color: var(--sds-color-layout-background-warning);
+}
+.cardCritical {
+  background-color: var(--sds-color-layout-background-critical);
+}
