@@ -31,14 +31,9 @@ export const ProfileCard = ({ variant, children, ...rest }: ProfileCardProps) =>
       className={clsx(
         `sds-icons--${variant}`,
         'cardContainer',
-        variant === 'success'
-          ? 'cardSuccess'
-          : variant === 'warning'
-          ? 'cardWarning'
-          : 'cardCritical',
-        // variant === 'success' && 'cardSuccess',
-        // variant === 'warning' && 'cardWarning',
-        // variant === 'critical' && 'cardCritical',
+        variant === 'success' && 'cardSuccess',
+        variant === 'warning' && 'cardWarning',
+        variant === 'critical' && 'cardCritical',
       )}
       {...rest}
     >
