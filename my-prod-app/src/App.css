@@ -21,3 +21,10 @@ h2 {
   color: white;
   font-style: italic;
 }
+
+.cardContainer {
+  min-width: 200px;
+  min-height: 70px;
+  border-radius: var(--sds-space-border-radius-small);
+  padding: var(--sds-base-size-s1);
+}

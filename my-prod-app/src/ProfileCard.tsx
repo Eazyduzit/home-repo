@@ -27,6 +27,7 @@ export const ProfileCard = ({ variant, children, ...rest }: ProfileCardProps) =>
 
   return (
     <div
+      className="cardContainer"
       //   className={clsx(
       //     `sds-icons--$(variant)`,
       //     cardContainer,
