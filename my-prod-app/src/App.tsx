@@ -10,7 +10,11 @@ function App() {
       <h1>Hei, mitt navn er Marius!</h1>
       <h2>Jeg er en React og Typescript utvikler, i frontend..</h2>
       <Links />
-      <ProfileCard variant="success">Success</ProfileCard>
+      <div style={{ display: 'flex', gap: 'var(--sds-space-gap-small-)' }}>
+        <ProfileCard variant="success">Success</ProfileCard>
+        <ProfileCard variant="warning">Warning</ProfileCard>
+        <ProfileCard variant="critical">Critical</ProfileCard>
+      </div>
     </div>
   )
 }
