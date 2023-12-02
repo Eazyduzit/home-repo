@@ -1,6 +1,7 @@
-import { Paragraph, ScreenReaderOnly } from '@sikt/sds-core'
 import { HTMLAttributes, ReactNode } from 'react'
-// import clsx from 'cslx'
+import { Paragraph, ScreenReaderOnly } from '@sikt/sds-core'
+import { CheckCircleIcon, WarningIcon, XCircleIcon } from '@sikt/sds-icons'
+import clsx from 'cslx'
 
 type ProfileCardVariant = 'success' | 'warning' | 'critical'
 
@@ -10,8 +11,8 @@ export interface ProfileCardProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const ProfileCard = ({ variant, children, ...rest }: ProfileCardProps) => {
-  //   let screenReader
-  //   let Icon
+  let screenReader
+  let Icon
 
   return (
     <div className="test">
