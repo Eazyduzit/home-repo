@@ -14,6 +14,17 @@ export const ProfileCard = ({ variant, children, ...rest }: ProfileCardProps) =>
   let screenReader
   let Icon
 
+  if (variant === 'success') {
+    screenReader = 'Godkjent'
+    Icon = CheckCircleIcon
+  } else if (variant === 'warning') {
+    screenReader = 'Ikke vurdert'
+    Icon = WarningIcon
+  } else if (variant === 'critical') {
+    screenReader = 'Underkjent'
+    Icon = XCircleIcon
+  }
+
   return (
     <div className="test">
       <div className="cardContent">
