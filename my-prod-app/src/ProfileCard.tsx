@@ -12,19 +12,19 @@ export interface ProfileCardProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const ProfileCard = ({ variant, children, ...rest }: ProfileCardProps) => {
-  //   let screenReader
-  //   let Icon
+  let screenReader
+  let Icon
 
-  //   if (variant === 'success') {
-  //     screenReader = 'Godkjent'
-  //     Icon = CheckCircleIcon
-  //   } else if (variant === 'warning') {
-  //     screenReader = 'Ikke vurdert'
-  //     Icon = WarningIcon
-  //   } else if (variant === 'critical') {
-  //     screenReader = 'Underkjent'
-  //     Icon = XCircleIcon
-  //   }
+  if (variant === 'success') {
+    screenReader = 'Godkjent'
+    Icon = CheckCircleIcon
+  } else if (variant === 'warning') {
+    screenReader = 'Ikke vurdert'
+    Icon = WarningIcon
+  } else if (variant === 'critical') {
+    screenReader = 'Underkjent'
+    Icon = XCircleIcon
+  }
 
   return (
     <div
@@ -41,22 +41,8 @@ export const ProfileCard = ({ variant, children, ...rest }: ProfileCardProps) =>
         <Paragraph as="span" variant="regular" modifier="strong">
           {children}
         </Paragraph>
-        <ScreenReaderOnly>
-          {variant === 'success'
-            ? 'Godkjent'
-            : variant === 'warning'
-            ? 'Ikke vurdert'
-            : 'Underkjent'}
-        </ScreenReaderOnly>
-        {/* <Icon /> */}
-        {/* {Icon && <Icon />} */}
-        {variant === 'success' ? (
-          <CheckCircleIcon />
-        ) : variant === 'warning' ? (
-          <WarningIcon />
-        ) : (
-          <XCircleIcon />
-        )}
+        <ScreenReaderOnly>{screenReader}</ScreenReaderOnly>
+        {Icon && <Icon />}
       </div>
       <div className="cardBorder" />
     </div>
