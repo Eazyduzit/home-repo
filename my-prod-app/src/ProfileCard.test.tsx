@@ -23,5 +23,21 @@ describe('ProfileCard', () => {
       expect(node).toBeInTheDocument()
       expect(screen.getByText('children')).toBeInTheDocument()
     })
+    it('should render warning', () => {
+      render(<ProfileCard variant="warning">children</ProfileCard>)
+
+      const node = screen.getByText('children')
+
+      expect(node).toBeInTheDocument()
+      expect(screen.getByText('children')).toBeInTheDocument()
+    })
+    it('should render critical', () => {
+      render(<ProfileCard variant="critical">children</ProfileCard>)
+
+      const node = screen.getByText('children')
+
+      expect(node).toBeInTheDocument()
+      expect(screen.getByText('children')).toBeInTheDocument()
+    })
   })
 })
