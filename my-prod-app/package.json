@@ -48,6 +48,7 @@
     ]
   },
   "devDependencies": {
+    "@types/jest-axe": "^3.5.9",
     "@typescript-eslint/parser": "^5.62.0",
     "eslint": "^8.51.0",
     "eslint-config-prettier": "^9.0.0",
