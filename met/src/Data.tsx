@@ -16,19 +16,24 @@ interface ApiProps {
 
 export const GetData = () => {
   const [showPosts, setShowPosts] = useState<ApiProps>()
+  const [error, setError] = useState<string>()
   const apiUrl = 'https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=60.10&lon=9.58'
   const userAgent = 'm_skjellerud@hotmail.com'
 
   async function pullJson() {
-    const response = await fetch(apiUrl, {
-      headers: {
-        'User-Agent': userAgent,
-      },
-    })
-    const responseData = await response.json()
-
-    setShowPosts(responseData)
-    console.log(responseData)
+    try {
+      const response = await fetch(apiUrl, {
+        headers: {
+          'User-Agent': userAgent,
+        },
+      })
+      const responseData = await response.json()
+      setShowPosts(responseData)
+      console.log(responseData)
+    } catch (error) {
+      setError('Error fetching data')
+      console.error('Error fetching data:', error)
+    }
   }
 
   useEffect(() => {
@@ -40,6 +45,7 @@ export const GetData = () => {
     <section className="Wrap">
       <header className="Title">
         <h1>Temperatures</h1>
+        {error && <p>{error}</p>}
         <CalendarBlankIcon className="calendarIcon" />
       </header>
       <div className="Data">
