@@ -3,9 +3,9 @@ import { GetData } from './Data'
 
 function App() {
   return (
-    <div className="App">
+    <main className="App">
       <GetData />
-    </div>
+    </main>
   )
 }
 

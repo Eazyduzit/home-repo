@@ -26,6 +26,7 @@ body {
   width: 400px;
   background-color: white;
   border: 1px solid black;
+  border-radius: 10px;
 }
 
 .Title h1 {
@@ -34,4 +35,7 @@ body {
 
 .Data {
   font-weight: bold;
+  & li {
+    padding: 5px;
+  }
 }

@@ -36,10 +36,10 @@ export const GetData = () => {
   const showTime = showPosts?.properties.timeseries
   // const showTemp = data.instant.details.air_temperature
   return (
-    <div className="Wrap">
-      <div className="Title">
+    <section className="Wrap">
+      <header className="Title">
         <h1>Temperatures</h1>
-      </div>
+      </header>
       <div className="Data">
         <ul>
           <li>{`${showTime?.at(-3)?.time} : ${showTime?.at(-3)?.data.instant.details
@@ -54,6 +54,6 @@ export const GetData = () => {
           </li>
         </ul>
       </div>
-    </div>
+    </section>
   )
 }
