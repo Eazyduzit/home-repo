@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { CalendarBlankIcon, ClockIcon } from '@sikt/sds-icons'
 
 interface ApiProps {
   properties: {
@@ -39,16 +40,22 @@ export const GetData = () => {
     <section className="Wrap">
       <header className="Title">
         <h1>Temperatures</h1>
+        <CalendarBlankIcon className="calendarIcon" />
       </header>
       <div className="Data">
         <ul>
-          <li>{`${showTime?.at(-3)?.time} : ${showTime?.at(-3)?.data.instant.details
-            .air_temperature}`}</li>
           <li>
+            <ClockIcon className="clockIcon" />
+            {`${showTime?.at(-3)?.time} : ${showTime?.at(-3)?.data.instant.details
+              .air_temperature}`}
+          </li>
+          <li>
+            <ClockIcon className="clockIcon" />
             {`${showTime?.at(-2)?.time} : ${showTime?.at(-2)?.data.instant.details
               .air_temperature}`}
           </li>
           <li>
+            <ClockIcon className="clockIcon" />
             {`${showTime?.at(-1)?.time} : ${showTime?.at(-1)?.data.instant.details
               .air_temperature}`}
           </li>

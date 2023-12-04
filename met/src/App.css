@@ -1,3 +1,5 @@
+@import url('@sikt/sds-icons');
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -29,13 +31,30 @@ body {
   border-radius: 10px;
 }
 
-.Title h1 {
+.Title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin: 20px;
+  & .calendarIcon {
+    font-size: 1.7rem;
+  }
 }
 
 .Data {
   font-weight: bold;
   & li {
+    display: flex;
+    align-items: center;
     padding: 5px;
+    gap: 10px;
+  }
+}
+
+ul {
+  list-style: none;
+  & .clockIcon {
+    display: flex;
+    align-items: center;
   }
 }
