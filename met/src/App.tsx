@@ -5,7 +5,11 @@ function App() {
   const [showPosts, setShowPosts] = useState<any>()
   const apiUrl = 'https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=60.10&lon=9.58'
 
-  // let displayData
+  // interface Api {
+  //   properties: object
+  //   timeseries: Array
+  // }
+
   function pullJson() {
     fetch(apiUrl)
       .then((response) => response.json())
@@ -13,9 +17,23 @@ function App() {
         console.log(typeof responseData)
         setShowPosts(() => (
           <div>
-            <p key={responseData.id}>{responseData.properties.timeseries[84].time}</p>
-            <p key={responseData.id}>{responseData.properties.timeseries[85].time}</p>
-            <p key={responseData.id}>{responseData.properties.timeseries[86].time}</p>
+            <ul>
+              <li>
+                {`${responseData.properties.timeseries.at(-3).time} : ${
+                  responseData.properties.timeseries.at(-3).data.instant.details.air_temperature
+                }`}
+              </li>
+              <li>
+                {`${responseData.properties.timeseries.at(-2).time} : ${
+                  responseData.properties.timeseries.at(-2).data.instant.details.air_temperature
+                }`}
+              </li>
+              <li>
+                {`${responseData.properties.timeseries.at(-1).time} : ${
+                  responseData.properties.timeseries.at(-1).data.instant.details.air_temperature
+                }`}
+              </li>
+            </ul>
           </div>
         ))
         console.log(responseData)
