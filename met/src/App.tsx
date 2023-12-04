@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 function App() {
   const [showPosts, setShowPosts] = useState<any>()
   const apiUrl = 'https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=60.10&lon=9.58'
+  const userAgent = 'm_skjellerud@hotmail.com'
 
   // interface Api {
   //   properties: object
@@ -11,7 +12,11 @@ function App() {
   // }
 
   function pullJson() {
-    fetch(apiUrl)
+    fetch(apiUrl, {
+      headers: {
+        'User-Agent': userAgent,
+      },
+    })
       .then((response) => response.json())
       .then((responseData) => {
         console.log(typeof responseData)
