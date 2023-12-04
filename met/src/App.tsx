@@ -35,7 +35,7 @@ function App() {
     pullJson()
   }, [])
   const showTime = showPosts?.properties.timeseries
-  // const temperature = data.instant.details.air_temperature
+  // const showTemp = data.instant.details.air_temperature
 
   return (
     <div className="App">
