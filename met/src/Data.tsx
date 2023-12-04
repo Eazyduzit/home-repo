@@ -30,7 +30,7 @@ export const GetData = () => {
     setShowPosts(responseData)
     console.log(responseData)
   }
-  // empty array, on first mount
+
   useEffect(() => {
     pullJson()
   }, [])

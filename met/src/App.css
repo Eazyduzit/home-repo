@@ -1,4 +1,5 @@
 @import url('@sikt/sds-icons');
+@import url('@sikt/sds-tokens');
 
 * {
   box-sizing: border-box;
@@ -24,18 +25,19 @@ body {
 }
 
 .Wrap {
-  height: 200px;
-  width: 400px;
+  min-height: 200px;
+  min-width: 400px;
   background-color: white;
-  border: 1px solid black;
-  border-radius: 10px;
+  border: var(--sds-space-border-weight-thin) solid black;
+  border-radius: var(--sds-space-border-radius-medium);
+  padding-bottom: var(--sds-base-size-m);
 }
 
 .Title {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 20px;
+  margin: var(--sds-base-size-m);
   & .calendarIcon {
     font-size: 1.7rem;
   }
@@ -46,8 +48,8 @@ body {
   & li {
     display: flex;
     align-items: center;
-    padding: 5px;
-    gap: 10px;
+    padding: var(--sds-space-padding-minimal);
+    gap: var(--sds-space-gap-small);
   }
 }
 
