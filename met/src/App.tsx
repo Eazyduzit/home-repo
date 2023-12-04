@@ -1,23 +1,23 @@
 import './App.css'
 import { useState, useEffect } from 'react'
 
+interface Api {
+  properties: {
+    timeseries: {
+      time: string
+      data: {
+        instant: {
+          details: { air_temperature: number }
+        }
+      }
+    }[]
+  }
+}
+
 function App() {
-  const [showPosts, setShowPosts] = useState<any>()
+  const [showPosts, setShowPosts] = useState<Api>()
   const apiUrl = 'https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=60.10&lon=9.58'
   const userAgent = 'm_skjellerud@hotmail.com'
-
-  interface Api {
-    properties: {
-      timeseries: {
-        time: string
-        data: {
-          instant: {
-            details: { air_temperature: number }
-          }
-        }
-      }[]
-    }
-  }
 
   function pullJson() {
     fetch(apiUrl, {
@@ -27,29 +27,7 @@ function App() {
     })
       .then((response) => response.json())
       .then((responseData: Api) => {
-        // console.log(typeof responseData)
-        setShowPosts(() => (
-          <div className="Data">
-            <ul>
-              <li>
-                {`${responseData.properties.timeseries.at(-3)
-                  ?.time} : ${responseData.properties.timeseries.at(-3)?.data.instant.details
-                  .air_temperature}`}
-              </li>
-              <li>
-                {`${responseData.properties.timeseries.at(-2)
-                  ?.time} : ${responseData.properties.timeseries.at(-2)?.data.instant.details
-                  .air_temperature}`}
-              </li>
-              <li>
-                {`${responseData.properties.timeseries.at(-1)
-                  ?.time} : ${responseData.properties.timeseries.at(-1)?.data.instant.details
-                  .air_temperature}`}
-              </li>
-            </ul>
-          </div>
-        ))
-        console.log(typeof responseData.properties.timeseries)
+        setShowPosts(responseData)
         console.log(responseData)
       })
   }
@@ -57,6 +35,8 @@ function App() {
   useEffect(() => {
     pullJson()
   }, [])
+  const response = showPosts?.properties.timeseries
+  // const temperature = data.instant.details.air_temperature
 
   return (
     <div className="App">
@@ -64,7 +44,20 @@ function App() {
         <div className="Title">
           <h1>Temperatures</h1>
         </div>
-        {showPosts}
+        <div className="Data">
+          <ul>
+            <li>{`${response?.at(-3)?.time} : ${response?.at(-3)?.data.instant.details
+              .air_temperature}`}</li>
+            <li>
+              {`${response?.at(-2)?.time} : ${response?.at(-2)?.data.instant.details
+                .air_temperature}`}
+            </li>
+            <li>
+              {`${response?.at(-1)?.time} : ${response?.at(-1)?.data.instant.details
+                .air_temperature}`}
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   )
