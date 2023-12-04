@@ -45,28 +45,31 @@ export const GetData = () => {
     <section className="Wrap">
       <header className="Title">
         <h1>Temperatures</h1>
-        {error && <p>{error}</p>}
-        <CalendarBlankIcon className="calendarIcon" />
+        <CalendarBlankIcon className="CalendarIcon" />
       </header>
-      <div className="Data">
-        <ul>
-          <li>
-            <ClockIcon className="clockIcon" />
-            {`${showTime?.at(-3)?.time} : ${showTime?.at(-3)?.data.instant.details
-              .air_temperature}`}
-          </li>
-          <li>
-            <ClockIcon className="clockIcon" />
-            {`${showTime?.at(-2)?.time} : ${showTime?.at(-2)?.data.instant.details
-              .air_temperature}`}
-          </li>
-          <li>
-            <ClockIcon className="clockIcon" />
-            {`${showTime?.at(-1)?.time} : ${showTime?.at(-1)?.data.instant.details
-              .air_temperature}`}
-          </li>
-        </ul>
-      </div>
+      {showPosts ? (
+        <div className="Data">
+          <ul>
+            <li>
+              <ClockIcon className="ClockIcon" />
+              {`${showTime?.at(-3)?.time} : ${showTime?.at(-3)?.data.instant.details
+                .air_temperature}`}
+            </li>
+            <li>
+              <ClockIcon className="ClockIcon" />
+              {`${showTime?.at(-2)?.time} : ${showTime?.at(-2)?.data.instant.details
+                .air_temperature}`}
+            </li>
+            <li>
+              <ClockIcon className="ClockIcon" />
+              {`${showTime?.at(-1)?.time} : ${showTime?.at(-1)?.data.instant.details
+                .air_temperature}`}
+            </li>
+          </ul>
+        </div>
+      ) : (
+        <div className="Error">{error}</div>
+      )}
     </section>
   )
 }
