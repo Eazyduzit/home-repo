@@ -19,23 +19,22 @@ function App() {
   const apiUrl = 'https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=60.10&lon=9.58'
   const userAgent = 'm_skjellerud@hotmail.com'
 
-  function pullJson() {
-    fetch(apiUrl, {
+  async function pullJson() {
+    const response = await fetch(apiUrl, {
       headers: {
         'User-Agent': userAgent,
       },
     })
-      .then((response) => response.json())
-      .then((responseData: Api) => {
-        setShowPosts(responseData)
-        console.log(responseData)
-      })
+    const responseData = await response.json()
+
+    setShowPosts(responseData)
+    console.log(responseData)
   }
   // empty array, on first mount
   useEffect(() => {
     pullJson()
   }, [])
-  const response = showPosts?.properties.timeseries
+  const showTime = showPosts?.properties.timeseries
   // const temperature = data.instant.details.air_temperature
 
   return (
@@ -46,14 +45,14 @@ function App() {
         </div>
         <div className="Data">
           <ul>
-            <li>{`${response?.at(-3)?.time} : ${response?.at(-3)?.data.instant.details
+            <li>{`${showTime?.at(-3)?.time} : ${showTime?.at(-3)?.data.instant.details
               .air_temperature}`}</li>
             <li>
-              {`${response?.at(-2)?.time} : ${response?.at(-2)?.data.instant.details
+              {`${showTime?.at(-2)?.time} : ${showTime?.at(-2)?.data.instant.details
                 .air_temperature}`}
             </li>
             <li>
-              {`${response?.at(-1)?.time} : ${response?.at(-1)?.data.instant.details
+              {`${showTime?.at(-1)?.time} : ${showTime?.at(-1)?.data.instant.details
                 .air_temperature}`}
             </li>
           </ul>
