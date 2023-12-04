@@ -15,8 +15,8 @@ interface ApiProps {
 }
 
 export const GetData = () => {
-  const [showPosts, setShowPosts] = useState<ApiProps>()
-  const [error, setError] = useState<string>()
+  const [weatherData, setWeatherData] = useState<ApiProps>()
+  const [errorMessage, setErrorMessage] = useState<string>()
   const apiUrl = 'https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=60.10&lon=9.58'
   const userAgent = 'm_skjellerud@hotmail.com'
 
@@ -28,10 +28,10 @@ export const GetData = () => {
         },
       })
       const responseData = await response.json()
-      setShowPosts(responseData)
+      setWeatherData(responseData)
       console.log(responseData)
     } catch (error) {
-      setError('Error fetching data')
+      setErrorMessage('Unable to retrieve weather data')
       console.error('Error fetching data:', error)
     }
   }
@@ -39,15 +39,16 @@ export const GetData = () => {
   useEffect(() => {
     pullJson()
   }, [])
-  const showTime = showPosts?.properties.timeseries
-  // const showTemp = data.instant.details.air_temperature
+
+  const showTime = weatherData?.properties.timeseries
+
   return (
     <section className="Wrap">
       <header className="Title">
         <h1>Temperatures</h1>
         <CalendarBlankIcon className="CalendarIcon" />
       </header>
-      {showPosts ? (
+      {weatherData ? (
         <div className="Data">
           <ul>
             <li>
@@ -68,7 +69,7 @@ export const GetData = () => {
           </ul>
         </div>
       ) : (
-        <div className="Error">{error}</div>
+        <div className="Error">{errorMessage}</div>
       )}
     </section>
   )
