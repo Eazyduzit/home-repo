@@ -8,7 +8,10 @@ function App() {
 
   // interface Api {
   //   properties: object
-  //   timeseries: Array
+  //   timeseries: object
+  //   // timeseries: Array<{
+  //   //   time: string
+  //   // }>
   // }
 
   function pullJson() {
@@ -19,9 +22,9 @@ function App() {
     })
       .then((response) => response.json())
       .then((responseData) => {
-        console.log(typeof responseData)
+        // console.log(typeof responseData)
         setShowPosts(() => (
-          <div>
+          <div className="Data">
             <ul>
               <li>
                 {`${responseData.properties.timeseries.at(-3).time} : ${
@@ -41,9 +44,9 @@ function App() {
             </ul>
           </div>
         ))
-        console.log(responseData)
+        // console.log(typeof responseData.properties.timeseries)
+        // console.log(responseData)
       })
-    // return
   }
   // empty array, on first mount
   useEffect(() => {
@@ -52,8 +55,12 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Hello, World</h1>
-      {showPosts}
+      <div className="Wrap">
+        <div className="Title">
+          <h1>Temperatures</h1>
+        </div>
+        {showPosts}
+      </div>
     </div>
   )
 }
