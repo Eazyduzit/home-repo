@@ -5,7 +5,8 @@ import App from './App'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  // Removed strict mode temporarely because it caused it to fetch the data twice..
+  // <React.StrictMode>
+  <App />,
+  // </React.StrictMode>,
 )

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { CalendarBlankIcon, ClockIcon } from '@sikt/sds-icons'
 
-interface ApiProps {
+interface ApiState {
   properties: {
     timeseries: {
       time: string
@@ -15,7 +15,7 @@ interface ApiProps {
 }
 
 export const GetData = () => {
-  const [weatherData, setWeatherData] = useState<ApiProps>()
+  const [weatherData, setWeatherData] = useState<ApiState>()
   const [errorMessage, setErrorMessage] = useState<string>()
   const apiUrl = 'https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=60.10&lon=9.58'
   const userAgent = 'm_skjellerud@hotmail.com'
@@ -40,8 +40,12 @@ export const GetData = () => {
     pullJson()
   }, [])
 
-  const showTime = weatherData?.properties.timeseries
-  //   const showTemp = showTime?.at(-3)?.data.instant.details.air_temperature
+  const showTime = (numParam: number) => {
+    return weatherData?.properties.timeseries.at(numParam)?.time
+  }
+  const showTemp = (numParam: number) => {
+    return weatherData?.properties.timeseries.at(numParam)?.data.instant.details.air_temperature
+  }
 
   return (
     <section className="Wrap">
@@ -54,18 +58,15 @@ export const GetData = () => {
           <ul>
             <li>
               <ClockIcon className="ClockIcon" />
-              {`${showTime?.at(-3)?.time} : ${showTime?.at(-3)?.data.instant.details
-                .air_temperature}`}
+              {`${showTime(-3)} : ${showTemp(-3)}°`}
             </li>
             <li>
               <ClockIcon className="ClockIcon" />
-              {`${showTime?.at(-2)?.time} : ${showTime?.at(-2)?.data.instant.details
-                .air_temperature}`}
+              {`${showTime(-2)} : ${showTemp(-2)}°`}
             </li>
             <li>
               <ClockIcon className="ClockIcon" />
-              {`${showTime?.at(-1)?.time} : ${showTime?.at(-1)?.data.instant.details
-                .air_temperature}`}
+              {`${showTime(-1)} : ${showTemp(-1)}°`}
             </li>
           </ul>
         </div>
