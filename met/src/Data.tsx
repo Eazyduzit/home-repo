@@ -32,7 +32,7 @@ export const GetData = () => {
       console.log(responseData)
     } catch (error) {
       setErrorMessage('Unable to retrieve weather data')
-      console.error('Error fetching data:', error)
+      //   console.error('Error fetching data:', error)
     }
   }
 
@@ -41,6 +41,7 @@ export const GetData = () => {
   }, [])
 
   const showTime = weatherData?.properties.timeseries
+  //   const showTemp = showTime?.at(-3)?.data.instant.details.air_temperature
 
   return (
     <section className="Wrap">
