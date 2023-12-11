@@ -2,6 +2,7 @@ import './App.css'
 import Avatar from './Avatar'
 import Links from './Links'
 import { ProfileCard } from './ProfileCard'
+import Counter from './Counter'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <ProfileCard variant="warning">Warning</ProfileCard>
         <ProfileCard variant="critical">Critical</ProfileCard>
       </div>
+      <Counter />
     </div>
   )
 }
