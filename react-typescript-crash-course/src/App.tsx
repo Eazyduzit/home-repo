@@ -1,4 +1,5 @@
 import './App.css'
+import Customer from './components/Customer'
 
 function App() {
   return (
@@ -15,6 +16,12 @@ function App() {
             <button className="btn btn-success btn-sm">
               <i className="fa fa-book" /> Read More
             </button>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col">
+            <Customer name={'Marius'} age={39} title={'Overingeniør'} />
           </div>
         </div>
       </div>
