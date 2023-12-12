@@ -1,5 +1,6 @@
 import './App.css'
 import Customer from './components/Customer'
+import { CustomerClass } from './components/CustomerClass'
 
 function App() {
   return (
@@ -22,6 +23,12 @@ function App() {
         <div className="row">
           <div className="col">
             <Customer name={'Marius'} age={39} title={'Software Engineer'} />
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col">
+            <CustomerClass name={'Marius'} age={39} title={'Software Engineer'} />
           </div>
         </div>
       </div>
