@@ -1,7 +1,10 @@
 import React from 'react'
+import { InterfaceUser } from '../models/InterfaceUser'
 
 interface LoginFormProps {}
-interface LoginFormState {}
+interface LoginFormState {
+  user: InterfaceUser
+}
 
 const LoginForm: React.FC<LoginFormProps> = () => {
   return (
