@@ -28,7 +28,7 @@ const Counter: React.FC<CounterProps> = () => {
       <h3>Counter Component</h3>
       <div className="container">
         <div className="row">
-          <div className="col-md-4">
+          <div className="col-md-5">
             <div className="card">
               <div className="card-body">
                 <p className="h3">Counter: {state.counter}</p>
