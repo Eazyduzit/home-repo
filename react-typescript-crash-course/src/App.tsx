@@ -1,4 +1,5 @@
 import './App.css'
+import Counter from './components/Counter'
 import Customer from './components/Customer'
 import { CustomerClass } from './components/CustomerClass'
 import Employee from './components/Employee'
@@ -21,6 +22,8 @@ function App() {
             </button>
           </div>
         </div>
+
+        <Counter />
 
         <div className="row">
           <div className="col">
