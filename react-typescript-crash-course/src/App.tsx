@@ -5,6 +5,7 @@ import { CustomerClass } from './components/CustomerClass'
 import Employee from './components/Employee'
 import { EmployeeClass } from './components/EmployeeClass'
 import Greetings from './components/Greetings'
+import LoginForm from './components/LoginForm'
 
 function App() {
   return (
@@ -21,6 +22,12 @@ function App() {
             <button className="btn btn-success btn-sm">
               <i className="fa fa-book" /> Read More
             </button>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col">
+            <LoginForm />
           </div>
         </div>
 
