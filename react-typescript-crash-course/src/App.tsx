@@ -23,7 +23,11 @@ function App() {
           </div>
         </div>
 
-        <Counter />
+        <div className="row">
+          <div className="col">
+            <Counter />
+          </div>
+        </div>
 
         <div className="row">
           <div className="col">
