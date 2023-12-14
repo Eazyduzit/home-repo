@@ -2,6 +2,7 @@ import './App.css'
 import Customer from './components/Customer'
 import { CustomerClass } from './components/CustomerClass'
 import Employee from './components/Employee'
+import { EmployeeClass } from './components/EmployeeClass'
 
 function App() {
   return (
@@ -36,6 +37,12 @@ function App() {
         <div className="row">
           <div className="col">
             <Employee />
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col">
+            <EmployeeClass />
           </div>
         </div>
       </div>
