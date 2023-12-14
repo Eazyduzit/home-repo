@@ -25,6 +25,7 @@ const LoginForm: React.FC<LoginFormProps> = () => {
   return (
     <>
       <h3>Login Form Component</h3>
+      <pre>{JSON.stringify(state.user)}</pre>
       <div className="container">
         <div className="row">
           <div className="col-md-4">
@@ -36,6 +37,7 @@ const LoginForm: React.FC<LoginFormProps> = () => {
                 <form action="">
                   <div className="mb-2">
                     <input
+                      required={true}
                       name="username"
                       value={state.user.username}
                       onChange={updateInput}
@@ -45,7 +47,15 @@ const LoginForm: React.FC<LoginFormProps> = () => {
                     />
                   </div>
                   <div className="mb-2">
-                    <input type="password" className="form-control" placeholder="Password" />
+                    <input
+                      required={true}
+                      name="password"
+                      value={state.user.password}
+                      onChange={updateInput}
+                      type="password"
+                      className="form-control"
+                      placeholder="Password"
+                    />
                   </div>
                   <div className="mb-2">
                     <input type="submit" className="btn btn-primary" value="Login" />
