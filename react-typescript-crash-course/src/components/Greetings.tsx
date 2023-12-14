@@ -10,6 +10,16 @@ const Greetings: React.FC<GreetingsProps> = () => {
   const [state, setState] = useState<GreetingsState>({
     message: 'Hello',
   })
+  const newMsg = () => {
+    setState({
+      message: 'Good Morning',
+    })
+  }
+  const changeMsg = (greet: string): void => {
+    setState({
+      message: greet,
+    })
+  }
   return (
     <>
       <h3>Greetings Component</h3>
@@ -19,9 +29,15 @@ const Greetings: React.FC<GreetingsProps> = () => {
             <div className="card">
               <div className="card-body">
                 <p className="h3">{state.message}</p>
-                <button className="btn btn-success m-1">Good Morning</button>
-                <button className="btn btn-warning m-1">Good Afternoon</button>
-                <button className="btn btn-danger m-1">Good Evening</button>
+                <button onClick={newMsg} className="btn btn-success m-1">
+                  Good Morning
+                </button>
+                <button onClick={() => changeMsg('Good Afternoon')} className="btn btn-warning m-1">
+                  Good Afternoon
+                </button>
+                <button onClick={() => changeMsg('Good Evening')} className="btn btn-danger m-1">
+                  Good Evening
+                </button>
               </div>
             </div>
           </div>
