@@ -17,6 +17,11 @@ const Counter: React.FC<CounterProps> = () => {
       counter: state.counter - 1,
     })
   }
+  const reset = () => {
+    setState({
+      counter: (state.counter = 0),
+    })
+  }
   return (
     <>
       <h3>Counter Component</h3>
@@ -29,8 +34,11 @@ const Counter: React.FC<CounterProps> = () => {
                 <button onClick={increment} className="btn btn-success m-1">
                   Increment
                 </button>
-                <button onClick={decrement} className="btn btn-danger m-1">
+                <button onClick={decrement} className="btn btn-warning m-1">
                   Decrease
+                </button>
+                <button onClick={reset} className="btn btn-danger m-1">
+                  Reset
                 </button>
               </div>
             </div>
