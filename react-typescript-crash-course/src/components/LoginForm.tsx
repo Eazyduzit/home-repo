@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { FormEvent, useState } from 'react'
 import { InterfaceUser } from '../models/InterfaceUser'
 
 interface LoginFormProps {}
@@ -22,6 +22,11 @@ const LoginForm: React.FC<LoginFormProps> = () => {
       },
     })
   }
+
+  const login = (event: FormEvent<HTMLFormElement>): void => {
+    event.preventDefault()
+    console.log(state.user)
+  }
   return (
     <>
       <h3>Login Form Component</h3>
@@ -34,7 +39,7 @@ const LoginForm: React.FC<LoginFormProps> = () => {
                 <p className="h4">Login Here</p>
               </div>
               <div className="card-body">
-                <form action="">
+                <form onSubmit={login}>
                   <div className="mb-2">
                     <input
                       required={true}
@@ -43,7 +48,7 @@ const LoginForm: React.FC<LoginFormProps> = () => {
                       onChange={updateInput}
                       type="text"
                       className="form-control"
-                      placeholder="Username"
+                      placeholder="Username / Email"
                     />
                   </div>
                   <div className="mb-2">
