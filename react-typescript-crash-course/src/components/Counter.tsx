@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface CounterProps {}
 interface CounterState {
   counter: number
@@ -7,17 +8,17 @@ interface CounterState {
 
 const Counter: React.FC<CounterProps> = () => {
   const [state, setState] = useState<CounterState>({ counter: 0 })
-  const increment = () => {
+  const increment = (): void => {
     setState({
       counter: state.counter + 1,
     })
   }
-  const decrement = () => {
+  const decrement = (): void => {
     setState({
       counter: state.counter - 1,
     })
   }
-  const reset = () => {
+  const reset = (): void => {
     setState({
       counter: (state.counter = 0),
     })
