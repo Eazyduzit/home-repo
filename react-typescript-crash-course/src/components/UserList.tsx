@@ -46,14 +46,27 @@ const UserList: React.FC<UserListProps> = () => {
             <table className="table table-striped text-center table-hover">
               <thead className="bg-dark text-white">
                 <tr>
-                  <th>Serial Number</th>
+                  <th>S.Number</th>
                   <th>Name</th>
                   <th>Age</th>
                   <th>Designation</th>
                   <th>Company</th>
                 </tr>
               </thead>
-              <tbody></tbody>
+              <tbody>
+                {state.users.length > 0 &&
+                  state.users.map((user) => {
+                    return (
+                      <tr key={user.snum}>
+                        <td>{user.snum}</td>
+                        <td>{user.name}</td>
+                        <td>{user.age}</td>
+                        <td>{user.designation}</td>
+                        <td>{user.company}</td>
+                      </tr>
+                    )
+                  })}
+              </tbody>
             </table>
           </div>
         </div>
