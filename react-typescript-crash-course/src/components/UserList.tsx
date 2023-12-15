@@ -2,13 +2,15 @@ import React, { useState } from 'react'
 import { UserListUser } from '../models/UserListUser'
 import { UserService } from '../services/UserService'
 
-interface UserListProps {}
+interface UserListProps {
+  users?: unknown
+}
 interface UserListState {
   users: UserListUser[]
 }
 
 const UserList: React.FC<UserListProps> = () => {
-  const [state, setState] = useState<UserListState>({
+  const [state] = useState<UserListState>({
     users: UserService.getAllUsers(),
   })
   return (
