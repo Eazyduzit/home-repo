@@ -1,7 +1,10 @@
 import React, { FormEvent, useState } from 'react'
 import { InterfaceUser } from '../models/InterfaceUser'
 
-interface LoginFormProps {}
+interface LoginFormProps {
+  username?: string
+  password?: string
+}
 interface LoginFormState {
   user: InterfaceUser
 }
