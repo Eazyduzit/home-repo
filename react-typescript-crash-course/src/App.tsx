@@ -1,4 +1,5 @@
 import './App.css'
+import AxiosList from './components/AxiosList'
 import Counter from './components/Counter'
 import Customer from './components/Customer'
 import { CustomerClass } from './components/CustomerClass'
@@ -23,6 +24,12 @@ function App() {
             <button className="btn btn-success btn-sm">
               <i className="fa fa-book" /> Read More
             </button>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col">
+            <AxiosList />
           </div>
         </div>
 
