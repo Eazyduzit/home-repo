@@ -15,13 +15,8 @@ const UserList: React.FC<UserListProps> = () => {
   })
   return (
     <>
-      <h3>UserList Component</h3>
+      <h3>User List Component</h3>
       <div className="container">
-        <div className="row">
-          <div className="col">
-            <p className="h3">User List</p>
-          </div>
-        </div>
         <div className="row">
           <div className="col">
             <table className="table table-striped text-center table-hover shadow-lg">
