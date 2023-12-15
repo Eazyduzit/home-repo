@@ -2,18 +2,19 @@ import React, { useEffect, useState } from 'react'
 import { AxiosListUser } from '../models/AxiosListUser'
 import { AxiosListService } from '../services/AxiosListService'
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface AxiosListProps {}
 interface AxiosListState {
   loading: boolean
   users: AxiosListUser[]
-  errorMsg: string
+  //   errorMsg: string
 }
 
 const AxiosList: React.FC<AxiosListProps> = () => {
   const [state, setState] = useState<AxiosListState>({
     loading: false,
     users: [] as AxiosListUser[],
-    errorMsg: '',
+    // errorMsg: '',
   })
 
   useEffect(() => {
@@ -27,16 +28,16 @@ const AxiosList: React.FC<AxiosListProps> = () => {
           users: response.data,
         })
       })
-      .catch((error) => {
+      .catch(() => {
         setState({
           ...state,
-          loading: false,
-          errorMsg: error.message,
+          //   loading: false,
+          //   errorMsg: error.message,
         })
       })
   }, [])
 
-  const { loading, users, errorMsg } = state
+  const { users } = state
 
   return (
     <>
@@ -59,16 +60,14 @@ const AxiosList: React.FC<AxiosListProps> = () => {
                 {users.length > 0 &&
                   users.map((user) => {
                     return (
-                      <>
-                        <tr key={user.id}>
-                          <td>{user.id}</td>
-                          <td>{user.name}</td>
-                          <td>{user.email}</td>
-                          <td>{user.phone}</td>
-                          <td>{user.company.name}</td>
-                          <td>{user.website}</td>
-                        </tr>
-                      </>
+                      <tr key={user.id}>
+                        <td>{user.id}</td>
+                        <td>{user.name}</td>
+                        <td>{user.email}</td>
+                        <td>{user.phone}</td>
+                        <td>{user.company.name}</td>
+                        <td>{user.website}</td>
+                      </tr>
                     )
                   })}
               </tbody>
