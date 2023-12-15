@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { UserListUser } from '../models/UserListUser'
+import { UserService } from '../services/UserService'
 
 interface UserListProps {}
 interface UserListState {
@@ -8,29 +9,7 @@ interface UserListState {
 
 const UserList: React.FC<UserListProps> = () => {
   const [state, setState] = useState<UserListState>({
-    users: [
-      {
-        snum: 'AAA101',
-        name: 'Elon',
-        age: 45,
-        designation: 'CEO',
-        company: 'SpaceX',
-      },
-      {
-        snum: 'AAA102',
-        name: 'John',
-        age: 42,
-        designation: 'Sr. Software Engineer',
-        company: 'SpaceX',
-      },
-      {
-        snum: 'AAA103',
-        name: 'Marius',
-        age: 39,
-        designation: 'Software Engineer',
-        company: 'SpaceX',
-      },
-    ],
+    users: UserService.getAllUsers(),
   })
   return (
     <>
@@ -43,8 +22,8 @@ const UserList: React.FC<UserListProps> = () => {
         </div>
         <div className="row">
           <div className="col">
-            <table className="table table-striped text-center table-hover">
-              <thead className="bg-dark text-white">
+            <table className="table table-striped text-center table-hover shadow-lg">
+              <thead className="table-dark">
                 <tr>
                   <th>S.Number</th>
                   <th>Name</th>
@@ -60,7 +39,7 @@ const UserList: React.FC<UserListProps> = () => {
                       <tr key={user.snum}>
                         <td>{user.snum}</td>
                         <td>{user.name}</td>
-                        <td>{user.age}</td>
+                        <td>{user.age} years</td>
                         <td>{user.designation}</td>
                         <td>{user.company}</td>
                       </tr>
