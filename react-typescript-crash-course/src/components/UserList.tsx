@@ -1,7 +1,10 @@
 import React from 'react'
+import { UserListUser } from '../models/UserListUser'
 
 interface UserListProps {}
-interface UserListState {}
+interface UserListState {
+  users: UserListUser[]
+}
 
 const UserList: React.FC<UserListProps> = () => {
   return (

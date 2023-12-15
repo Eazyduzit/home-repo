@@ -1,12 +1,12 @@
 import React, { FormEvent, useState } from 'react'
-import { InterfaceUser } from '../models/InterfaceUser'
+import { LoginFormUser } from '../models/LoginFormUser'
 
 interface LoginFormProps {
   username?: string
   password?: string
 }
 interface LoginFormState {
-  user: InterfaceUser
+  user: LoginFormUser
 }
 
 const LoginForm: React.FC<LoginFormProps> = () => {
