@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { AxiosListUser } from '../models/AxiosListUser'
+import { AxiosListService } from '../services/AxiosListService'
 
 interface AxiosListProps {}
 interface AxiosListState {
@@ -14,6 +15,27 @@ const AxiosList: React.FC<AxiosListProps> = () => {
     users: [] as AxiosListUser[],
     errorMsg: '',
   })
+
+  useEffect(() => {
+    setState({ ...state, loading: true })
+    AxiosListService.getAllUsers()
+      .then((response) => {
+        console.log(response.data)
+        setState({
+          ...state,
+          loading: false,
+          users: response.data,
+        })
+      })
+      .catch((error) => {
+        setState({
+          ...state,
+          loading: false,
+          errorMsg: error.message,
+        })
+      })
+  }, [])
+
   return (
     <>
       <h3>Axios List Component</h3>
