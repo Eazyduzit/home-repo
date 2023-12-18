@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 interface ImageSliderProps {
   name: string
@@ -13,10 +13,14 @@ const imagesArray = [
 ]
 
 const ImageSlider: React.FC<ImageSliderProps> = ({ name }) => {
+  const [activeImageIndex, setActiveImageIndex] = useState(0)
+
   return (
     <>
       <h3>{name}</h3>
-      <img src={imagesArray[0]} alt="Wallpaper image" />
+      <button>Previous</button>
+      <img src={imagesArray[activeImageIndex]} alt="Wallpaper image" />
+      <button>Next</button>
     </>
   )
 }
