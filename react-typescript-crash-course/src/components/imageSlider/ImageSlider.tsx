@@ -26,7 +26,14 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ name }) => {
     <>
       <h3>{name}</h3>
       <button onClick={handlePrevious}>Previous</button>
-      <img src={imagesArray[activeImageIndex]} alt="Wallpaper image" />
+      {imagesArray.map((url, index) => (
+        <img
+          key={url}
+          src={url}
+          style={activeImageIndex === index ? { display: 'block' } : { display: 'none' }}
+          alt="Wallpaper image"
+        />
+      ))}
       <button onClick={handleNext}>Next</button>
     </>
   )
