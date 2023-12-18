@@ -16,10 +16,10 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ name }) => {
   const [activeImageIndex, setActiveImageIndex] = useState(0)
 
   const handlePrevious = () => {
-    setActiveImageIndex(activeImageIndex - 1)
+    setActiveImageIndex(!activeImageIndex ? imagesArray.length - 1 : activeImageIndex - 1)
   }
   const handleNext = () => {
-    setActiveImageIndex(activeImageIndex + 1)
+    setActiveImageIndex((activeImageIndex + 1) % imagesArray.length)
   }
 
   return (
