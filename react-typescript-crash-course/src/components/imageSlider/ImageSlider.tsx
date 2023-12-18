@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 interface ImageSliderProps {
   name: string
@@ -21,6 +21,15 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ name }) => {
   const handleNext = () => {
     setActiveImageIndex((activeImageIndex + 1) % imagesArray.length)
   }
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      handleNext()
+    }, 5000)
+    return () => {
+      clearTimeout(timer)
+    }
+  }, [activeImageIndex])
 
   return (
     <>
