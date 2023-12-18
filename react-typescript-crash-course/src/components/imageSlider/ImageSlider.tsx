@@ -4,15 +4,22 @@ import { imagesArray } from './ImageData'
 interface ImageSliderProps {
   name: string
 }
+interface ImageSliderState {
+  counter: number
+}
 
 const ImageSlider: React.FC<ImageSliderProps> = ({ name }) => {
-  const [activeImageIndex, setActiveImageIndex] = useState(0)
+  const [activeImageIndex, setActiveImageIndex] = useState<ImageSliderState>({ counter: 0 })
 
   const handlePrevious = () => {
-    setActiveImageIndex(!activeImageIndex ? imagesArray.length - 1 : activeImageIndex - 1)
+    setActiveImageIndex({
+      counter: !activeImageIndex.counter ? imagesArray.length - 1 : activeImageIndex.counter - 1,
+    })
   }
   const handleNext = () => {
-    setActiveImageIndex((activeImageIndex + 1) % imagesArray.length)
+    setActiveImageIndex({
+      counter: (activeImageIndex.counter + 1) % imagesArray.length,
+    })
   }
 
   useEffect(() => {
@@ -32,7 +39,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ name }) => {
         <img
           key={url}
           src={url}
-          style={activeImageIndex === index ? { display: 'block' } : { display: 'none' }}
+          style={activeImageIndex.counter === index ? { display: 'block' } : { display: 'none' }}
           alt="Wallpaper image"
         />
       ))}
