@@ -1,12 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { imagesArray } from './ImageData'
-
-interface ImageSliderProps {
-  name: string
-}
-interface ImageSliderState {
-  counter: number
-}
+import { ImageSliderProps, ImageSliderState } from './types/ImageSliderTypes'
 
 const ImageSlider: React.FC<ImageSliderProps> = ({ name }) => {
   const [activeImageIndex, setActiveImageIndex] = useState<ImageSliderState>({ counter: 0 })
