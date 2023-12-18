@@ -15,12 +15,19 @@ const imagesArray = [
 const ImageSlider: React.FC<ImageSliderProps> = ({ name }) => {
   const [activeImageIndex, setActiveImageIndex] = useState(0)
 
+  const handlePrevious = () => {
+    setActiveImageIndex(activeImageIndex - 1)
+  }
+  const handleNext = () => {
+    setActiveImageIndex(activeImageIndex + 1)
+  }
+
   return (
     <>
       <h3>{name}</h3>
-      <button>Previous</button>
+      <button onClick={handlePrevious}>Previous</button>
       <img src={imagesArray[activeImageIndex]} alt="Wallpaper image" />
-      <button>Next</button>
+      <button onClick={handleNext}>Next</button>
     </>
   )
 }
